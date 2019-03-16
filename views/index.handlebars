@@ -1,0 +1,51 @@
+<section class="container">
+  <div class="row text-uppercase">
+    <div class="col-md-12 my-4 text-center">
+      <img src="/assets/images/burger.jpg" alt="Burger" class="logo img-fluid">
+    </div>
+    <div class="col-md-6 my-4">
+      <h1>Eat Burger!</h1>
+      <ul class="list-unstyled">
+        {{#each burguers}}
+          {{#unless devoured}}
+            <li  class="my-2">
+              <i class="fas fa-hamburger"></i>
+              {{idburguer}}. {{burguer_name}}
+              <button class="devoured btn btn-outline-light" data-id="{{this.idburguer}}" data-devoured="{{this.devoured}}">
+                DEVOUR IT!
+              </button>
+              <button class="deleteBurguer btn btn-outline-light" data-id="{{this.idburguer}}">
+                DELETE
+              </button>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6 my-4">
+      <h1>Devored Burger!</h1>
+      <ul class="list-unstyled">
+        {{#each burguers}}
+          {{#if devoured}}
+              <li  class="my-2">
+                <i class="fas fa-hamburger"></i>
+                {{idburguer}}. {{burguer_name}}
+                <button class="deleteBurguer btn btn-outline-light" data-id="{{this.idburguer}}">
+                  DELETE
+                </button>
+              </li>
+            {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-12 my-4 text-center">
+      <h2>Create your own burger</h2>
+      <form class="create-form">
+        <div class="form-group d-flex justify-content-center">
+          <input class="form-control text-center" type="text" id="burguerName" name="burguer_name" placeholder="Write the burguer's name" required autofocus>
+        </div>
+        <button class="createBurguer btn btn-outline-light" type="submit">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</header>
